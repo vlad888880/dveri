@@ -195,7 +195,7 @@
 
 //             $.get('/wp-json/v1/carts' + query)
 //                 .done(fetchDataHandle);
-
+//
 //         } else {
 //             $('.cart-section__control-wrapper').hide();
 //         }
