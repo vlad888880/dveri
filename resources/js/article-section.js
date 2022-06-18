@@ -27,7 +27,7 @@ $(document).ready(()=>{
         const setPrice = (()=>{
             const $priceLabel = $('.js-price');
 
-            return (price) => {
+            /* return (price) => {
                 if (+price > 0) {
                     const _price = price.toString();
                     let a = 3;
@@ -44,7 +44,11 @@ $(document).ready(()=>{
                 } else
                     $priceLabel.text('Цена договорная');
             };
-        })();
+        })(); */
+        return (price) => {
+            $priceLabel.text(price);
+        };
+    })();
 
         const setColor = (()=>{
             const $priceLabel = $('.js-color');

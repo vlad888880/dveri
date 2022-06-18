@@ -88,6 +88,7 @@ $(document).ready(() => {
             $(this).toggleClass('selected');
             $('.js--material').text($(this).attr('material_name'));
             $('.js-color').text($(this).attr('color_name'));
+            $('.js-price-view').text($(this).attr('price'));
             $('.js-color-this').text('');
             $(this).parent('.stage1').parent('.stage2').find('.js-color-this').text($(this).attr('color_name'));
         } else {
@@ -103,6 +104,7 @@ $(document).ready(() => {
             $('.own').attr('src', $(this).attr('src_image'));
             $('.js--material').text($(this).attr('material_name'));
             $('.js-color').text($(this).attr('color_name'));
+            $('.js-price-view').text($(this).attr('price'));
             $('.js-color-this').text('');
             $(this).parent('.stage1').parent('.stage2').find('.js-color-this').text($(this).attr('color_name'));
         }

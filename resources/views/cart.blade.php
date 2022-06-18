@@ -27,7 +27,6 @@
                 </a>
                 <div class="cart-item__name-wrapper">
                     <div class="title3 cart-item__subtitle js-name">{{ $item['name'] }}</div>
-                    <div class="paragraph cart-item__article js-article"> {{ $item['price'] == 0 ? "" :  "Цена: " + $item['price'] }}</div>
                     <div class="cart-item__properties js-properties">
                         <div class="paragraph cart-item__property js-property">Цвет: {{ !isset($item['attributes']['color'])  ? "" :   $item['attributes']['color'] }} </div>
                         <div class="paragraph cart-item__property js-property">Материал: {{ !isset($item['attributes']['material']) ? "" :  $item['attributes']['material'] }}</div>
@@ -36,14 +35,13 @@
                 <div class="cart-item__number">
                      <div class="title3 cart-item__subtitle">Количество:</div>
                    <div class="paragraph">
-                        <!-- <div class="number-input js-quantity  cart-item__number-input">{{ $item['quantity'] }}</div> -->
                         {{ $item['quantity'] }}
                     </div>
                 </div>
                 @if($item['price'] != 0)
                 <div class="cart-item__sum">
                     <div class="title3 cart-item__subtitle">Сумма:</div>
-                    <div class="paragraph cart-item__sum-content js-sum" >от 45 699 Р</div>
+                    <div class="paragraph cart-item__sum-content js-sum" >{{ $item['price'] * $item['quantity'] }}</div>
                 </div>
                 @endif
                 <div class="cart-item__remove js--remove paragraph" id_del="{{ $item['id'] }}">
@@ -67,12 +65,18 @@
         </div>
         <div class="cart-section__control-wrapper">
             <div class="cart-section__control">
-                <!-- <div class="cart-section__control-title title3">
+                <div class="cart-section__control-title title3">
                     Итого:
                 </div>
                 <div class="cart-section__control-sum title2">
-                    <span class="js-control-price"></span>Р
-                </div> -->
+                <span class="js-control-price">
+                <?php $x=0; ?>
+                @foreach($cart as $item)
+                <?php $x=$x + $item['price'] * $item['quantity'] ; ?>
+                @endforeach
+                <?php echo $x; ?>
+                </span> Р
+                </div>
                 <button class="button button-text js-cart-order cart-section__button title4">
                     Оформить заказ
                 </button>

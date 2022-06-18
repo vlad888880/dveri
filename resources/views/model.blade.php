@@ -189,6 +189,7 @@
                                         @if($item->name_material == $mat->name_material)
                                         @if($key == 0 && $key_mat == 0)
                                         <div color_name="{{ $item->name_color }}"
+                                            price="{{ $item->price_door }}"
                                             material_name="{{ $item->name_material }}"
                                             src_image="{{ asset('storage/app/variation') }}/{{ $item->img_variation }}"
                                             variation_id="{{ $item->id_variation }}"
@@ -200,6 +201,7 @@
                                         </div>
                                         @else
                                         <div color_name="{{ $item->name_color }}"
+                                            price="{{ $item->price_door }}"
                                             material_name="{{ $item->name_material }}"
                                             src_image="{{ asset('storage/app/variation') }}/{{ $item->img_variation }}"
                                             variation_id="{{ $item->id_variation }}"
@@ -266,12 +268,23 @@
                         {{ $item->name_material }}
                     </div>
                 </div>
+                <div class="article-section__table-row">
+                    <div
+                        class="article-section__table-column article-section__table-column--first paragraph paragraph--gray paragraph">
+                        Price:
+                    </div>
+                    <div class="article-section__table-column js-price-view paragraph">
+                        {{ $item->price_door }}
+                    </div>
+                </div>
                 @endif
                 @endforeach
             </div>
             <div class="article-section__price title2 js-price">
+                   
                 @if(!empty($door[0]['price_door']))
                 От {{ $door[0]['price_door'] }} Р
+
                 @endif
             </div>
             <button class="button js-add-to-cart article-section__button js-ajax-cart">
@@ -381,7 +394,7 @@
                         @foreach($variation_for_images as $key => $item)
                         @if($item->name_material == $mat->name_material)
                         @if($item->id_variation == $model)
-                        <div color_name="{{ $item->name_color }}" material_name="{{ $item->name_material }}"
+                        <div color_name="{{ $item->name_color }}" price="{{ $item->price_door }}" material_name="{{ $item->name_material }}"
                             variation_id="{{ $item->id_variation }}" color_id="{{ $item->id_color }}"
                             id_glass="{{ $item->id_glass }}" variation_name="{{ $item->name_variation }}"
                             src_image="{{ asset('storage/app/variation') }}/{{ $item->img_variation }}"
@@ -391,7 +404,7 @@
                                 title="{{ $item->name_color }}" />
                         </div>
                         @else
-                        <div color_name="{{ $item->name_color }}" material_name="{{ $item->name_material }}"
+                        <div color_name="{{ $item->name_color }}" price="{{ $item->price_door }}" material_name="{{ $item->name_material }}"
                             id_glass="{{ $item->id_glass }}" variation_id="{{ $item->id_variation }}"
                             color_id="{{ $item->id_color }}" variation_name="{{ $item->name_variation }}"
                             src_image="{{ asset('storage/app/variation') }}/{{ $item->img_variation }}"
@@ -422,7 +435,7 @@
                     <div class="model-material__content js-content model-material__content--material stage1">
                         @foreach($variation_for_color as $key => $item)
                         @if($item->id_color == $ccolor)
-                        <div color_name="{{ $item->name_color }}" material_name="{{ $item->name_material }}"
+                        <div color_name="{{ $item->name_color }}" price="{{ $item->price_door }}" material_name="{{ $item->name_material }}"
                             variation_id="{{ $item->id_variation }}" color_id="{{ $item->id_color }}"
                             id_glass="{{ $item->id_glass }}" variation_name="{{ $item->name_variation }}"
                             src_image="{{ asset('storage/app/variation') }}/{{ $item->img_variation }}"
@@ -432,7 +445,7 @@
                                 title="{{ $item->name_color }}" />
                         </div>
                         @else
-                        <div color_name="{{ $item->name_color }}" material_name="{{ $item->name_material }}"
+                        <div color_name="{{ $item->name_color }}" price="{{ $item->price_door }}" material_name="{{ $item->name_material }}"
                             id_glass="{{ $item->id_glass }}" variation_id="{{ $item->id_variation }}"
                             color_id="{{ $item->id_color }}" variation_name="{{ $item->name_variation }}"
                             src_image="{{ asset('storage/app/variation') }}/{{ $item->img_variation }}"

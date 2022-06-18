@@ -261,6 +261,7 @@ class catalogController extends Controller
                 $mass[$key]['door']['color'] = Color::where('id_color', $mass[$key]['door']['id_color'])->first();
                 $mass[$key]['door']['color']['material'] = Material::where('id_material', $mass[$key]['door']['color']['id_material'])->first();
                 $mass[$key]['door']['glass'] = Glass::where('id_glass', $mass[$key]['door']['id_glass'])->first();
+                $mass[$key]['price'] = $item->price;
             }   
             Mail::to('reborn-80lvl@yandex.ru')->send(new OrderMail($mass, $name, $phone));
             return redirect()->back()->with('ok', 'ok');

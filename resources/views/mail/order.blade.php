@@ -13,6 +13,7 @@
     <br>
     <hr>
     <br>
+    <?php $y=0; ?>
     @foreach($doors as $door)
         <img src="http://dveri/storage/app/variation/{{ $door['door']['img_variation'] }}" alt="" height="auto" width="250"><br>
         <span>Количество: {{ $door['count'] }}</span> <br>
@@ -21,9 +22,13 @@
         <span>Цвет: {{ $door['door']['color']['name_color'] }}</span><br>
         <span>Материал: {{ $door['door']['color']['material']['name_material'] }}</span><br>
         <span>Стекло: {{ isset($door['door']['glass']['name_glass']) ? $door['door']['glass']['name_glass'] : "Отсутствует" }}</span><br>
+        <span>Cумма: {{ $door['price'] * $door['count'] }}</span> <br>
+        <?php $y=$y + $door['price'] * $door['count'] ; ?>
         <br>
         <hr>
         <br>
     @endforeach
+    <span>Итого: <?php echo $y; ?></span> Р <br>
+
 </body>
 </html>
